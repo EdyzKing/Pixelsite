@@ -226,25 +226,57 @@ body {
 
 /* Ajuste para telas muito pequenas (celulares) */
 @media (max-width: 600px) {
-    .pc-area,
-    .frame-area,
-    .bed-area,
+    .pc-area {
+        left: 0vw;
+        top: 33vw;
+        width: 10vw;
+        height: 10vw;
+    }
+    .frame-area {
+        left: 68vw;
+        top: 18vw;
+        width: 12vw;
+        height: 15vw;
+    }
+    .bed-area {
+        left: 70vw;
+        top: 43vw;
+        width: 30vw;
+        height: 30vw;
+    }
     .gato-area {
-        border-width: 1px;
+        left: 53vw;
+        top: 55vw;
+        width: 15vw;
+        height: auto;
     }
     .radio-img {
-        width: 14vw !important;
-        height: 14vw !important;
-        left: 60vw;
-        top: 10vw;
+        left: 36vw;
+        top: 29vw;
+        width: 10vw !important;
+        height: 10vw !important;
     }
-    #balloon-frame,
-    #balloon-bed,
+
+    #balloon-frame {
+        left: 50vw !important;
+        top: 20vw !important;
+        font-size: 2vw;
+        max-width: 20vw;
+    }
+
+    #balloon-bed {
+        left: 60vw !important;
+        top: 42vw !important;
+        font-size: 2vw;
+        max-width: 20vw;
+    }
+
     #balloon-gato {
-        font-size: 5vw;
-        max-width: 80vw;
+        left: 50vw !important;
+        top: 68vw !important;
+        font-size: 4.5vw;
+        max-width: 70vw;
     }
 }
-
 
 
