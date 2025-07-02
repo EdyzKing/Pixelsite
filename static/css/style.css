@@ -1,3 +1,4 @@
+/* === BASE === */
 body {
     margin: 0;
     overflow: hidden;
@@ -6,22 +7,31 @@ body {
     width: 100vw;
 }
 
-.room img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.room {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../images/room.png'); /* caminho relativo ao style.css */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #111;
 }
 
-.pc-area {
+.pc-area, .frame-area, .bed-area, .gato-area, .radio-img {
     position: absolute;
+    cursor: pointer;
+}
+
+/* === ELEMENTOS INTERATIVOS (DESKTOP) === */
+.pc-area {
     left: 158px;
     top: 205px;
     width: 95px;
     height: 92px;
-    cursor: pointer;
     border: 2px solid transparent;
 }
+
 .pc-area:hover {
     border: 2px solid transparent;
     box-shadow: 0 0 40px 20px #fff, 0 0 10px #ffffff;
@@ -30,76 +40,52 @@ body {
 }
 
 .frame-area {
-    position: absolute;
     left: 875px;
     top: 40px;
     width: 110px;
     height: 140px;
-    cursor: pointer;
 }
 
-.frame-area:hover {
-   border: 0px solid transparent;
-    box-shadow: 0 0 40px 20px #00000000, 0 0 10px #ffffff00;
-    background: rgba(3, 3, 3, 0);
+.frame-area:hover,
+.bed-area:hover,
+.gato-area:hover,
+.radio-img:hover {
+    border: 0;
+    box-shadow: 0 0 40px 20px transparent, 0 0 10px transparent;
+    background: transparent;
     transition: border 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
 .bed-area {
-    position: absolute;
     left: 900px;
     top: 300px;
     width: 300px;
     height: 300px;
-    cursor: pointer;
-}
-
-.bed-area:hover {
-    border: 0px solid transparent;
-    box-shadow: 0 0 40px 20px #00000000, 0 0 10px #ffffff00;
-    background: rgba(3, 3, 3, 0);
-    transition: border 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
 .gato-area {
-    position: absolute;
     left: 750px;
     top: 425px;
     width: 130px;
     height: auto;
-    cursor: pointer;
-    
 }
-.gato-area:hover {
-    border: 0px solid transparent;
-    box-shadow: 0 0 40px 20px #00000000, 0 0 10px #ffffff00;
-    background: rgba(3, 3, 3, 0);
-    transition: border 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-}
-
 
 .radio-img {
     width: 100px !important;
     height: 100px !important;
-    position: absolute;
     left: 535px;   
     top: 160px;    
-    cursor: pointer;
     z-index: 10;
-    transition: transform 0.2s;
     object-fit: contain;
     background-color: transparent;
+    transition: transform 0.2s;
 }
-
 
 .radio-img:hover {
-border: 0px solid transparent;
-    box-shadow: 0 0 40px 20px #00000000, 0 0 10px #ffffff00;
-    background: rgba(3, 3, 3, 0);
-    transition: border 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    transform: scale(1.1);
 }
 
-
+/* === BALÕES === */
 #message-box {
     position: absolute;
     bottom: 20px;
@@ -150,41 +136,16 @@ border: 0px solid transparent;
     left: 610px;  
 }
 
+.fade-in { opacity: 1; }
+.fade-out { opacity: 0; }
 
-
-
-.fade-in {
-    opacity: 1;
-}
-
-.fade-out {
-    opacity: 0;
-}
-
-.hidden {
-    display: none;
-}
-
-/* Ajuste geral para imagens e áreas interativas */
-.room img,
-.radio-img,
-.gato-area,
-.pc-area,
-.frame-area,
-.bed-area {
-    max-width: 100vw;
-    max-height: 100vh;
-}
-
-/* Responsividade para telas menores */
+/* === RESPONSIVO: TELAS MENORES QUE 900PX === */
 @media (max-width: 900px) {
-    .room img {
-        object-fit: contain;
-        background-color: transparent;
-    }
-
     .room {
-        height: auto;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #111;
     }
 
     body {
@@ -198,24 +159,28 @@ border: 0px solid transparent;
         width: 7vw;
         height: 7vw;
     }
+
     .frame-area {
         left: 62vw;
         top: 12vw;
         width: 8vw;
         height: 9vw;
     }
+
     .bed-area {
         left: 64vw;
         top: 28vw;
         width: 22vw;
         height: 25vw;
     }
+
     .gato-area {
         left: 51vw;
         top: 38vw;
         width: 10vw;
         height: auto;
     }
+
     .radio-img {
         left: 40vw;
         top: 19vw;
@@ -223,67 +188,58 @@ border: 0px solid transparent;
         height: 7vw !important;
     }
 
-    #balloon-frame{
+    #balloon-frame {
         left: 53vw !important;
         top: 10vw !important;
-        font-size: 1vw;
-        max-width: 7vw;
+        font-size: 2.5vw;
+        max-width: 20vw;
     }
 
-    #balloon-bed{
+    #balloon-bed {
         left: 70vw !important;
         top: 20vw !important;
-        font-size: 1vw;
-        max-width: 7vw;
+        font-size: 2.5vw;
+        max-width: 20vw;
     }
 
     #balloon-gato {
         left: 53vw !important;
         top: 30vw !important;
-        font-size: 1vw;
-        max-width: 7vw;
+        font-size: 2.5vw;
+        max-width: 20vw;
     }
 }
 
-/* Ajuste para telas muito pequenas (celulares) */
+/* === RESPONSIVO: TELAS MENORES QUE 600PX === */
 @media (max-width: 600px) {
-    .room img {
-        object-fit: contain;
-        background-color: transparent;
-    }
-
-    .room {
-        height: auto;
-    }
-
-    body {
-        overflow-x: hidden;
-        overflow-y: auto;
-    }
     .pc-area {
         left: 11vw;
         top: 35vw;
         width: 8vw;
         height: 8vw;
     }
+
     .frame-area {
         left: 64vw;
         top: 24vw;
         width: 9vw;
         height: 10vw;
     }
+
     .bed-area {
         left: 65vw;
         top: 43vw;
         width: 20vw;
         height: 20vw;
     }
+
     .gato-area {
         left: 53vw;
         top: 53vw;
         width: 10vw;
         height: auto;
     }
+
     .radio-img {
         left: 39vw;
         top: 32vw;
@@ -291,24 +247,24 @@ border: 0px solid transparent;
         height: 8vw !important;
     }
 
-     #balloon-frame {
+    #balloon-frame {
         left: 50vw !important;
         top: 20vw !important;
-        font-size: 2vw;
-        max-width: 20vw;
+        font-size: 3vw;
+        max-width: 25vw;
     }
 
     #balloon-bed {
         left: 60vw !important;
         top: 42vw !important;
-        font-size: 2vw;
-        max-width: 20vw;
+        font-size: 3vw;
+        max-width: 25vw;
     }
 
     #balloon-gato {
         left: 40vw !important;
         top: 62vw !important;
-        font-size: 2vw;
-        max-width: 20vw;
+        font-size: 3vw;
+        max-width: 25vw;
     }
 }
