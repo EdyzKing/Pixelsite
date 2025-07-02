@@ -1,21 +1,21 @@
-/* === BASE === */
 body {
     margin: 0;
-    overflow: hidden;
     background-color: #111;
-    height: 100vh;
-    width: 100vw;
+    overflow-x: hidden;
+    font-family: 'Courier New', monospace;
 }
 
 .room {
     position: relative;
     width: 100vw;
-    height: 100vh;
-    background-image: url('../images/room.png'); /* caminho relativo ao style.css */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: #111;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.room-bg {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .pc-area, .frame-area, .bed-area, .gato-area, .radio-img {
@@ -23,87 +23,52 @@ body {
     cursor: pointer;
 }
 
-/* === ELEMENTOS INTERATIVOS (DESKTOP) === */
 .pc-area {
     left: 158px;
-    top: 205px;
+    top: 350px;
     width: 95px;
     height: 92px;
     border: 2px solid transparent;
 }
-
 .pc-area:hover {
-    border: 2px solid transparent;
     box-shadow: 0 0 40px 20px #fff, 0 0 10px #ffffff;
     background: rgb(255, 255, 255);
-    transition: border 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .frame-area {
     left: 875px;
-    top: 40px;
+    top: 200px;
     width: 110px;
     height: 140px;
 }
 
-.frame-area:hover,
-.bed-area:hover,
-.gato-area:hover,
-.radio-img:hover {
-    border: 0;
-    box-shadow: 0 0 40px 20px transparent, 0 0 10px transparent;
-    background: transparent;
-    transition: border 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-}
-
 .bed-area {
     left: 900px;
-    top: 300px;
+    top: 450px;
     width: 300px;
     height: 300px;
 }
 
 .gato-area {
-    left: 750px;
-    top: 425px;
+    left: 740px;
+    top: 560px;
     width: 130px;
     height: auto;
 }
 
 .radio-img {
+    left: 535px;
+    top: 310px;
     width: 100px !important;
     height: 100px !important;
-    left: 535px;   
-    top: 160px;    
     z-index: 10;
     object-fit: contain;
     background-color: transparent;
     transition: transform 0.2s;
 }
-
 .radio-img:hover {
     transform: scale(1.1);
-}
-
-/* === BALÕES === */
-#message-box {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #222;
-    color: #00ffcc;
-    font-family: 'Courier New', monospace;
-    font-size: 20px;
-    padding: 10px 20px;
-    border: 2px solid #00ffcc;
-    border-radius: 4px;
-    box-shadow: 0 0 10px #00ffcc;
-    z-index: 10;
-}
-
-.hidden {
-    display: none;
 }
 
 .balloon {
@@ -111,7 +76,6 @@ body {
     background-color: #111;
     color: #0ff;
     border: 2px solid #0ff;
-    font-family: 'Courier New', monospace;
     font-size: 20px;
     padding: 6px 10px;
     border-radius: 6px;
@@ -120,129 +84,84 @@ body {
     z-index: 20;
     transition: opacity 0.5s ease;
 }
-
-#balloon-frame {
-    top: 30px;
-    left: 1000px;
-}
-
-#balloon-bed {
-    top: 210px;
-    left: 910px;
-}
-
-#balloon-gato {
-    top: 360px;   
-    left: 610px;  
-}
+#balloon-frame { top: 100px; left: 800px; }
+#balloon-bed { top: 400px; left: 910px; }
+#balloon-gato { top: 500px; left: 610px; }
 
 .fade-in { opacity: 1; }
 .fade-out { opacity: 0; }
+.hidden { display: none; }
 
-/* === RESPONSIVO: TELAS MENORES QUE 900PX === */
+/* RESPONSIVO: MÁXIMO 900px */
 @media (max-width: 900px) {
-    .room {
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-color: #111;
-    }
-
-    body {
-        overflow-x: hidden;
-        overflow-y: auto;
-    }
-
     .pc-area {
-        left: 16vw;
-        top: 22vw;
-        width: 7vw;
-        height: 7vw;
+        left: 11vw; top: 26vw;
+        width: 8vw; height: 7vw;
     }
-
     .frame-area {
-        left: 62vw;
-        top: 12vw;
-        width: 8vw;
-        height: 9vw;
+        left: 64vw; top: 14vw;
+        width: 9vw; height: 10vw;
     }
-
     .bed-area {
-        left: 64vw;
-        top: 28vw;
-        width: 22vw;
-        height: 25vw;
+        left: 64vw; top: 28vw;
+        width: 22vw; height: 25vw;
     }
-
     .gato-area {
-        left: 51vw;
-        top: 38vw;
+        left: 53vw; top: 43vw;
         width: 10vw;
-        height: auto;
     }
-
     .radio-img {
-        left: 40vw;
-        top: 19vw;
+        left: 40vw; top: 23vw;
         width: 7vw !important;
         height: 7vw !important;
     }
-
     #balloon-frame {
-        left: 53vw !important;
-        top: 10vw !important;
-        font-size: 2.5vw;
-        max-width: 20vw;
+        left: 53vw !important; top: 10vw !important;
+        font-size: 2.5vw; max-width: 20vw;
     }
-
     #balloon-bed {
-        left: 70vw !important;
-        top: 20vw !important;
-        font-size: 2.5vw;
-        max-width: 20vw;
+        left: 70vw !important; top: 20vw !important;
+        font-size: 2.5vw; max-width: 20vw;
     }
-
     #balloon-gato {
-        left: 53vw !important;
-        top: 30vw !important;
-        font-size: 2.5vw;
-        max-width: 20vw;
+        left: 53vw !important; top: 30vw !important;
+        font-size: 2.5vw; max-width: 20vw;
     }
 }
 
-/* === RESPONSIVO: TELAS MENORES QUE 600PX === */
+/* RESPONSIVO: MÁXIMO 600px */
 @media (max-width: 600px) {
     .pc-area {
         left: 11vw;
-        top: 35vw;
+        top: 25vw;
         width: 8vw;
         height: 8vw;
     }
 
     .frame-area {
         left: 64vw;
-        top: 24vw;
+        top: 14vw;
         width: 9vw;
         height: 10vw;
     }
 
     .bed-area {
         left: 65vw;
-        top: 43vw;
+        top: 33vw;
         width: 20vw;
         height: 20vw;
     }
 
     .gato-area {
         left: 53vw;
-        top: 53vw;
+        top: 40vw;
         width: 10vw;
         height: auto;
     }
 
     .radio-img {
         left: 39vw;
-        top: 32vw;
+        top: 22vw;
         width: 8vw !important;
         height: 8vw !important;
     }
