@@ -6,12 +6,6 @@ body {
     width: 100vw;
 }
 
-.room {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-}
-
 .room img {
     position: absolute;
     width: 100%;
@@ -94,11 +88,15 @@ body {
     z-index: 10;
     transition: transform 0.2s;
     object-fit: contain;
+    background-color: transparent;
 }
 
 
 .radio-img:hover {
-    transform: scale(1.1);
+border: 0px solid transparent;
+    box-shadow: 0 0 40px 20px #00000000, 0 0 10px #ffffff00;
+    background: rgba(3, 3, 3, 0);
+    transition: border 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
 
@@ -180,30 +178,40 @@ body {
 
 /* Responsividade para telas menores */
 @media (max-width: 900px) {
-    .room {
-        width: 100vw;
-        height: 100vh;
+    .room img {
+        object-fit: contain;
+        background-color: transparent;
     }
+
+    .room {
+        height: auto;
+    }
+
+    body {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
     .pc-area {
-        left: 11vw;
-        top: 21vw;
-        width: 8vw;
-        height: 8vw;
+        left: 16vw;
+        top: 22vw;
+        width: 7vw;
+        height: 7vw;
     }
     .frame-area {
-        left: 64vw;
-        top: 10vw;
-        width: 9vw;
-        height: 10vw;
+        left: 62vw;
+        top: 12vw;
+        width: 8vw;
+        height: 9vw;
     }
     .bed-area {
-        left: 65vw;
+        left: 64vw;
         top: 28vw;
         width: 22vw;
         height: 25vw;
     }
     .gato-area {
-        left: 53vw;
+        left: 51vw;
         top: 38vw;
         width: 10vw;
         height: auto;
@@ -237,41 +245,53 @@ body {
     }
 }
 
-
 /* Ajuste para telas muito pequenas (celulares) */
 @media (max-width: 600px) {
+    .room img {
+        object-fit: contain;
+        background-color: transparent;
+    }
+
+    .room {
+        height: auto;
+    }
+
+    body {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
     .pc-area {
-        left: 0vw;
-        top: 33vw;
-        width: 10vw;
-        height: 10vw;
+        left: 11vw;
+        top: 35vw;
+        width: 8vw;
+        height: 8vw;
     }
     .frame-area {
-        left: 68vw;
-        top: 18vw;
-        width: 12vw;
-        height: 15vw;
+        left: 64vw;
+        top: 24vw;
+        width: 9vw;
+        height: 10vw;
     }
     .bed-area {
-        left: 70vw;
+        left: 65vw;
         top: 43vw;
-        width: 30vw;
-        height: 30vw;
+        width: 20vw;
+        height: 20vw;
     }
     .gato-area {
         left: 53vw;
-        top: 55vw;
-        width: 15vw;
+        top: 53vw;
+        width: 10vw;
         height: auto;
     }
     .radio-img {
-        left: 36vw;
-        top: 29vw;
-        width: 10vw !important;
-        height: 10vw !important;
+        left: 39vw;
+        top: 32vw;
+        width: 8vw !important;
+        height: 8vw !important;
     }
 
-    #balloon-frame {
+     #balloon-frame {
         left: 50vw !important;
         top: 20vw !important;
         font-size: 2vw;
@@ -286,11 +306,9 @@ body {
     }
 
     #balloon-gato {
-        left: 50vw !important;
-        top: 68vw !important;
-        font-size: 4.5vw;
-        max-width: 70vw;
+        left: 40vw !important;
+        top: 62vw !important;
+        font-size: 2vw;
+        max-width: 20vw;
     }
 }
-
-
