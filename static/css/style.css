@@ -1,0 +1,171 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #111;
+    height: 100vh;
+    width: 100vw;
+}
+
+.room {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.room img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pc-area {
+    position: absolute;
+    left: 158px;
+    top: 205px;
+    width: 95px;
+    height: 92px;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+.pc-area:hover {
+    border: 2px solid transparent;
+    box-shadow: 0 0 40px 20px #fff, 0 0 10px #ffffff;
+    background: rgb(255, 255, 255);
+    transition: border 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.frame-area {
+    position: absolute;
+    left: 875px;
+    top: 40px;
+    width: 110px;
+    height: 140px;
+    cursor: pointer;
+}
+
+.frame-area:hover {
+   border: 0px solid transparent;
+    box-shadow: 0 0 40px 20px #00000000, 0 0 10px #ffffff00;
+    background: rgba(3, 3, 3, 0);
+    transition: border 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.bed-area {
+    position: absolute;
+    left: 900px;
+    top: 300px;
+    width: 300px;
+    height: 300px;
+    cursor: pointer;
+}
+
+.bed-area:hover {
+    border: 0px solid transparent;
+    box-shadow: 0 0 40px 20px #00000000, 0 0 10px #ffffff00;
+    background: rgba(3, 3, 3, 0);
+    transition: border 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.gato-area {
+    position: absolute;
+    left: 750px;
+    top: 425px;
+    width: 130px;
+    height: auto;
+    cursor: pointer;
+    
+}
+.gato-area:hover {
+    border: 0px solid transparent;
+    box-shadow: 0 0 40px 20px #00000000, 0 0 10px #ffffff00;
+    background: rgba(3, 3, 3, 0);
+    transition: border 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+
+.radio-img {
+    width: 100px !important;
+    height: 100px !important;
+    position: absolute;
+    left: 535px;   
+    top: 160px;    
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.2s;
+    object-fit: contain;
+}
+
+
+.radio-img:hover {
+    transform: scale(1.1);
+}
+
+
+#message-box {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #222;
+    color: #00ffcc;
+    font-family: 'Courier New', monospace;
+    font-size: 20px;
+    padding: 10px 20px;
+    border: 2px solid #00ffcc;
+    border-radius: 4px;
+    box-shadow: 0 0 10px #00ffcc;
+    z-index: 10;
+}
+
+.hidden {
+    display: none;
+}
+
+.balloon {
+    position: absolute;
+    background-color: #111;
+    color: #0ff;
+    border: 2px solid #0ff;
+    font-family: 'Courier New', monospace;
+    font-size: 20px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    box-shadow: 0 0 10px #0ff;
+    max-width: 255px;
+    z-index: 20;
+    transition: opacity 0.5s ease;
+}
+
+#balloon-frame {
+    top: 30px;
+    left: 1000px;
+}
+
+#balloon-bed {
+    top: 210px;
+    left: 910px;
+}
+
+#balloon-gato {
+    top: 360px;   
+    left: 610px;  
+}
+
+
+
+
+.fade-in {
+    opacity: 1;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+
+

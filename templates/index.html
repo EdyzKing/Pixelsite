@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Quarto Interativo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+   <div class="room">
+    <img src="{{ url_for('static', filename='images/room.png') }}" alt="Quarto Pixelado">
+
+    <a href="/resume" class="pc-area" title="Clique para ver o currículo" target="_blank"></a>
+    <div class="frame-area" onclick="showBalloon('🎮 Fã de jogos online, filmes e séries 🎬', 'frame')"></div>
+    <div class="bed-area" onclick="showBalloon('😴 Calma, ainda não é hora da soneca!', 'bed')"></div>
+    <div class="gato" onclick="showBalloon('🐱 Amo animais,principalmente gatos!', 'gato')"></div>
+
+    <div id="balloon-frame" class="balloon hidden"></div>
+    <div id="balloon-bed" class="balloon hidden"></div>
+    <div id="balloon-gato" class="balloon hidden"></div>
+
+    <audio id="click-sound" src="{{ url_for('static', filename='sounds/click.mp3') }}"></audio>
+
+    <div class="radio-area" onclick="toggleRadio()">
+        <img src="{{ url_for('static', filename='images/radio.gif') }}" alt="Rádio" class="radio-img">
+    </div>
+    <audio id="radio-audio" loop>
+        <source src="{{ url_for('static', filename='sounds/music.mp3') }}" type="audio/mpeg">
+        Seu navegador não suporta áudio HTML5.
+    </audio>
+</div>
+
+<script>
+    function showBalloon(text, target) {
+        const sound = document.getElementById("click-sound");
+        sound.play();
+
+        const balloon = document.getElementById(`balloon-${target}`);
+        balloon.innerText = text;
+        balloon.classList.remove("hidden");
+        balloon.classList.add("fade-in");
+
+        setTimeout(() => {
+            balloon.classList.remove("fade-in");
+            balloon.classList.add("fade-out");
+        }, 2500);
+
+        setTimeout(() => {
+            balloon.classList.add("hidden");
+            balloon.classList.remove("fade-out");
+        }, 3000);
+    }
+
+    function toggleRadio() {
+        const radioAudio = document.getElementById("radio-audio");
+        if (radioAudio.paused) {
+            radioAudio.play();
+        } else {
+            radioAudio.pause();
+        }
+    }
+</script>
+<img src="{{ url_for('static', filename='images/cat-sprite.gif') }}" 
+     class="gato-area" 
+     alt="Gato"
+     onclick="showBalloon('🐱 Amo animais,principalmente gatos!', 'gato')">
+
+</body>
+</html>
