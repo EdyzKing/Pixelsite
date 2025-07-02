@@ -8,33 +8,27 @@
 </head>
 <body>
     <div class="room">
+        <img src="{{ url_for('static', filename='images/room.png') }}" alt="Quarto Pixelado" class="room-bg">
 
-        <!-- Imagem de fundo agora é aplicada via CSS, então esta linha foi REMOVIDA -->
-        <!-- <img src="{{ url_for('static', filename='images/room.png') }}" alt="Quarto Pixelado"> -->
-
-        <!-- Elementos interativos -->
         <a href="/resume" class="pc-area" title="Clique para ver o currículo" target="_blank"></a>
         <div class="frame-area" onclick="showBalloon('🎮 Fã de jogos online, filmes e séries 🎬', 'frame')"></div>
         <div class="bed-area" onclick="showBalloon('😴 Calma, ainda não é hora da soneca!', 'bed')"></div>
 
-        <!-- Balões -->
         <div id="balloon-frame" class="balloon hidden"></div>
         <div id="balloon-bed" class="balloon hidden"></div>
         <div id="balloon-gato" class="balloon hidden"></div>
 
-        <!-- Som do clique -->
         <audio id="click-sound" src="{{ url_for('static', filename='sounds/click.mp3') }}"></audio>
 
-        <!-- Rádio -->
         <div class="radio-area" onclick="toggleRadio()">
             <img src="{{ url_for('static', filename='images/radio.gif') }}" alt="Rádio" class="radio-img">
         </div>
+
         <audio id="radio-audio" loop>
             <source src="{{ url_for('static', filename='sounds/music.mp3') }}" type="audio/mpeg">
             Seu navegador não suporta áudio HTML5.
         </audio>
 
-        <!-- Gato -->
         <img src="{{ url_for('static', filename='images/cat-sprite.gif') }}" 
              class="gato-area" 
              alt="Gato"
