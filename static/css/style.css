@@ -18,7 +18,9 @@ body {
     display: block;
 }
 
-.pc-area, .frame-area, .bed-area, .gato-area, .radio-img {
+
+
+.pc-area, .frame-area, .bed-area, .gato-area, .radio-img, .lamp-img, .sasuke-img {
     position: absolute;
     cursor: pointer;
 }
@@ -27,20 +29,30 @@ body {
     left: 158px;
     top: 350px;
     width: 95px;
-    height: 92px;
+    height: 100px;
     border: 2px solid transparent;
 }
 .pc-area:hover {
-    box-shadow: 0 0 40px 20px #fff, 0 0 10px #ffffff;
-    background: rgb(255, 255, 255);
+    box-shadow: 0 0 40px 20px #ffffff, 0 0 10px #f7f9fa;
+    background: rgb(246, 250, 255);
     transition: all 0.3s ease;
+    transform: scale(0.7);
+
 }
 
 .frame-area {
-    left: 875px;
-    top: 200px;
-    width: 110px;
-    height: 140px;
+    left: 1190px;
+    top: 280px;
+    width: 80px;
+    height: 270px;
+}
+
+.frame-area:hover {
+    box-shadow: 0 0 40px 20px #fdba0146, 0 0 10px #fdcf0042;
+    background: rgba(255, 153, 1, 0.144);
+    transition: all 0.3s ease;
+    transform: scale(1.1);
+
 }
 
 .bed-area {
@@ -51,10 +63,16 @@ body {
 }
 
 .gato-area {
-    left: 740px;
-    top: 560px;
-    width: 130px;
+    left: 320px;
+    top: 510px;
+    width: 110px;
     height: auto;
+}
+.gato-area:hover {
+    box-shadow: 0 0 40px 20px #ffffff00, 0 0 10px #f7f9fa00;
+     background: rgba(246, 250, 255, 0);
+    transition: all 0.3s ease;
+    transform: scale(1.2);
 }
 
 .radio-img {
@@ -84,48 +102,133 @@ body {
     z-index: 20;
     transition: opacity 0.5s ease;
 }
-#balloon-frame { top: 100px; left: 800px; }
+#balloon-frame { top: 200px; left: 950px; }
 #balloon-bed { top: 400px; left: 910px; }
-#balloon-gato { top: 500px; left: 610px; }
+#balloon-gato { top: 450px; left: 310px; }
+#balloon-sasuke { top: 210px; left: 480px; }
 
 .fade-in { opacity: 1; }
 .fade-out { opacity: 0; }
 .hidden { display: none; }
 
+
+
+
+
+.lamp-img {
+    position: absolute;
+    right: 280px;
+    top: 360px;
+    width: 40px;
+    height: 60px;
+    z-index: 30;
+    cursor: pointer;
+    transition: filter 5s;
+}
+
+.sasuke-img {
+    position: absolute;
+    left: 630px;      /* ajuste conforme desejar */
+    top: 240px;    /* ajuste conforme desejar */
+    width: 300px;
+    height: 530px;
+    z-index: 12;
+}
+
+.sasuke-img:hover {
+    box-shadow: 0 0 40px 20px #ffffff00, 0 0 10px #f7f9fa00;
+     background: rgba(246, 250, 255, 0);
+    transition: all 0.3s ease;
+    transform: scale(1.1);
+}
+.room.lit {
+    background-color: #ffe066 !important; 
+    transition: background 0.5s;
+}
+
+/* NOVO: CAMADA DE LUZ */
+.light-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(156, 122, 1, 0.322); 
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s;
+    z-index: 5;
+}
+.room.lit .light-overlay {
+    opacity: 1;
+}
+
 /* RESPONSIVO: MÁXIMO 900px */
 @media (max-width: 900px) {
-    .pc-area {
-        left: 11vw; top: 26vw;
-        width: 8vw; height: 7vw;
+     .pc-area {
+        left: 11vw;
+        top: 25vw;
+        width: 8vw;
+        height: 8vw;
     }
+
     .frame-area {
-        left: 64vw; top: 14vw;
-        width: 9vw; height: 10vw;
+        left: 88vw;
+        top: 20vw;
+        width: 8vw;
+        height: 22vw;
     }
+
     .bed-area {
-        left: 64vw; top: 28vw;
-        width: 22vw; height: 25vw;
+        left: 65vw;
+        top: 33vw;
+        width: 20vw;
+        height: 20vw;
     }
+
     .gato-area {
-        left: 53vw; top: 43vw;
-        width: 10vw;
+        left: 24vw;
+        top: 38vw;
+        width: 8vw;
+        height: auto;
     }
+
     .radio-img {
-        left: 40vw; top: 23vw;
-        width: 7vw !important;
-        height: 7vw !important;
+        left: 39vw;
+        top: 22vw;
+        width: 8vw !important;
+        height: 8vw !important;
     }
+
     #balloon-frame {
-        left: 53vw !important; top: 10vw !important;
-        font-size: 2.5vw; max-width: 20vw;
+        left: 60vw !important;
+        top: 10vw !important;
+        font-size: 2vw;
+        max-width: 15vw;
     }
+
     #balloon-bed {
-        left: 70vw !important; top: 20vw !important;
-        font-size: 2.5vw; max-width: 20vw;
+        left: 60vw !important;
+        top: 42vw !important;
+        font-size: 3vw;
+        max-width: 25vw;
     }
+
     #balloon-gato {
-        left: 53vw !important; top: 30vw !important;
-        font-size: 2.5vw; max-width: 20vw;
+        left: 40vw !important;
+        top: 62vw !important;
+        font-size: 3vw;
+        max-width: 25vw;
+    }
+    .lamp-img {
+        left: 78vw;
+        top: 25vw;
+        width: 5vw;
+        height: 5vw;
+    }
+    .sasuke-img {
+        left: 45vw;
+        top: 14vw;
+        width: 100px;
+        height: 190px;
     }
 }
 
@@ -139,10 +242,10 @@ body {
     }
 
     .frame-area {
-        left: 64vw;
-        top: 14vw;
-        width: 9vw;
-        height: 10vw;
+        left: 88vw;
+        top: 20vw;
+        width: 8vw;
+        height: 22vw;
     }
 
     .bed-area {
@@ -153,9 +256,9 @@ body {
     }
 
     .gato-area {
-        left: 53vw;
-        top: 43vw;
-        width: 10vw;
+        left: 24vw;
+        top: 38vw;
+        width: 8vw;
         height: auto;
     }
 
@@ -167,10 +270,10 @@ body {
     }
 
     #balloon-frame {
-        left: 50vw !important;
-        top: 20vw !important;
-        font-size: 3vw;
-        max-width: 25vw;
+        left: 65vw !important;
+        top: 10vw !important;
+        font-size: 2vw;
+        max-width: 15vw;
     }
 
     #balloon-bed {
@@ -181,9 +284,35 @@ body {
     }
 
     #balloon-gato {
-        left: 30vw !important;
-        top: 45vw !important;
-        font-size: 3vw;
-        max-width: 22vw;
+        left: 24vw !important;
+        top: 24vw !important;
+        font-size: 2vw;
+        max-width: 15vw;
     }
+
+    #balloon-sasuke {
+        left: 24vw !important;
+        top: 10vw !important;
+        font-size: 2vw;
+        max-width: 18vw;
+    }
+    .lamp-img {
+        left: 78vw;
+        top: 25vw;
+        width: 5vw;
+        height: 5vw;
+    }
+    .sasuke-img {
+        left: 45vw;
+        top: 14vw;
+        width: 100px;
+        height: 190px;
+    }
+}
+
+
+
+.room.lit {
+    background-color: #ffe066 !important; /* tom amarelado de luz acesa */
+    transition: background 0.5s;
 }
