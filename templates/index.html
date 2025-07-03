@@ -9,14 +9,17 @@
 <body>
     <div class="room">
         <img src="{{ url_for('static', filename='images/room.png') }}" alt="Quarto Pixelado" class="room-bg">
+        <div class="light-overlay"></div>
 
         <a href="/resume" class="pc-area" title="Clique para ver o currículo" target="_blank"></a>
-        <div class="frame-area" onclick="showBalloon('🎮 Fã de jogos online, filmes e séries 🎬', 'frame')"></div>
+        <div class="frame-area" onclick="showBalloon('🎮 Gosto de games, filmes e séries 🎬', 'frame')"></div>
         <div class="bed-area" onclick="showBalloon('😴 Calma, ainda não é hora da soneca!', 'bed')"></div>
+        <div class="sasuke" onclick="showBalloon('😁 Olá, me chamo Eduardo Motta, tenho 32 anos', 'sasuke')"></div>
 
         <div id="balloon-frame" class="balloon hidden"></div>
         <div id="balloon-bed" class="balloon hidden"></div>
         <div id="balloon-gato" class="balloon hidden"></div>
+        <div id="balloon-sasuke" class="balloon hidden"></div>
 
         <audio id="click-sound" src="{{ url_for('static', filename='sounds/click.mp3') }}"></audio>
 
@@ -32,7 +35,16 @@
         <img src="{{ url_for('static', filename='images/cat-sprite.gif') }}" 
              class="gato-area" 
              alt="Gato"
-             onclick="showBalloon('🐱🥰 Amo animais!', 'gato')">
+             onclick="showBalloon('🐱 Amo animais!', 'gato')">
+        <img src="{{ url_for('static', filename='images/luz.png') }}" 
+             alt="Lâmpada" 
+             class="lamp-img" 
+             id="lamp" 
+             onclick="toggleLamp()">
+        <img src="{{ url_for('static', filename='images/sasuke.gif') }}" 
+             alt="Sasuke" 
+             class="sasuke-img"
+             onclick="showBalloon('😁 Olá, me chamo Eduardo Motta, tenho 32 anos', 'sasuke')">
     </div>
 
     <script>
@@ -63,6 +75,11 @@
             } else {
                 radioAudio.pause();
             }
+        }
+
+        function toggleLamp() {
+            const room = document.querySelector('.room');
+            room.classList.toggle('lit');
         }
     </script>
 </body>
